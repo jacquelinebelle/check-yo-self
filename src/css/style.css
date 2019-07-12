@@ -38,7 +38,7 @@ header {
 
 input, 
 button {
-    border-radius: 5px;
+    border-radius: 3px;
     height: 40px;
 }
 
@@ -49,7 +49,7 @@ button {
 
 .header__btn {
     background-color: #cfd9dd;
-    border-radius: 5px 0 0 5px;
+    border-radius: 3px 0 0 3px;
     padding-top: 5px;
     position: absolute;
     right: 265px;
@@ -61,7 +61,7 @@ button {
 }
 
 .header__input {
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 3px 3px 0;
     padding-left: 8px;
     width: 250px;
 }
@@ -71,20 +71,48 @@ button {
     color: #f2f6f7;
     grid-area: 2 / 1 / 3 / 2;
     height: 100vh;
+    padding: 15px;
+    position: relative;
+}
+
+.form-input__label {
+    display: block;
+    font-size: 12px;
+    margin: 28px 0 10px;
 }
 
 .form__input {
     border: 2px solid #1f1e3d;
 }
 
-.form__btn {
-    background-color: #1f1e3d;
-    color: white;
+.form__input--short {
+    border-radius: 3px 0 0 3px;
+    width: 85%;
 }
 
-.form__input,
+.form__btn--small {
+    border-radius: 0 3px 3px 0;
+    padding: 0;
+    right: 17px;
+    top: 157.4px;
+    position: absolute;
+    width: 13%;
+}
+
+.form__btn {
+    background-color: #1f1e3d;
+    border: none;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.form__btn--top {
+    margin-top: 20px;
+}
+
+.form__input--long,
 .form__btn--big {
-    width: 75%;
+    width: 100%;
 }
 
 .card-container {
