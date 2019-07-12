@@ -15,7 +15,7 @@ body {
     font-family: 'Open Sans';
     font-weight: 400;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 0.2fr 1fr;
+    grid-template-rows: 70px 5fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     margin: 0;
@@ -26,24 +26,20 @@ header {
     background-color: #1f1e3d;
     color: white;
     display: flex;
-    /* flex-direction: row; */
     font-weight: 800;
     grid-area: 1 / 1 / 2 / 3;
     justify-content: space-between;
+    padding: 0 15px;
 }
 
 .heading--orange {
     color: #ffc30c
 }
 
-.header__btn {
-    width: 50px;
-}
-
 input, 
 button {
     border-radius: 5px;
-    height: 20px;
+    height: 40px;
 }
 
 .header__input,
@@ -51,9 +47,23 @@ button {
     border: none;
 }
 
-.header_input {
+.header__btn {
+    background-color: #cfd9dd;
+    border-radius: 5px 0 0 5px;
+    padding-top: 5px;
+    position: absolute;
+    right: 265px;
+    width: 50px;
+}
+
+.header__img {
+    height: 25px;
+}
+
+.header__input {
+    border-radius: 0 5px 5px 0;
     padding-left: 8px;
-    width: 100px;
+    width: 250px;
 }
 
 .side-bar {
