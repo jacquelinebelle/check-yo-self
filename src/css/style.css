@@ -126,6 +126,25 @@ button {
     width: 100%;
 }
 
+.list-item {
+    list-style: none;
+}
+
+.delete-task-btn {
+    background: none;
+    border: none;
+}
+
+.list-item-text {
+    display: inline-block;
+    font-size: 20px;
+    margin: 0;
+}
+
+.task-svg {
+    height: 20px;
+}
+
 .card-container {
     background-color: #f2f6f7;
     grid-area: 2 / 2 / 3 / 3;
