@@ -36,6 +36,10 @@ header {
     color: #ffc30c
 }
 
+button {
+    cursor: pointer;
+}
+
 input, 
 button {
     border-radius: 3px;
@@ -92,7 +96,6 @@ button {
 
 .form__btn--small {
     border-radius: 0 3px 3px 0;
-    padding: 0;
     right: 17px;
     top: 157.4px;
     position: absolute;
@@ -104,6 +107,11 @@ button {
     border: none;
     color: white;
     margin-bottom: 15px;
+}
+
+.form__btn:hover {
+    background-color: white;
+    color: #1f1e3d;
 }
 
 .form__btn--top {
@@ -118,6 +126,11 @@ button {
 .card-container {
     background-color: #f2f6f7;
     grid-area: 2 / 2 / 3 / 3;
+    padding: 20px;
+}
+
+.card-container__message {
+    text-align: center;
 }
 
 .card {
