@@ -3,16 +3,42 @@ const itemInput = document.querySelector('#item-input');
 const titleInput = document.querySelector('#title-input');
 const makeListItemBtn = document.querySelector('#make-item-btn');
 const taskList = document.querySelector('#item-list');
+const makeListBtn = document.querySelector('#make-list-btn');
+const cardContainer = document.querySelector('.card-container');
 
-makeListItemBtn.addEventListener('click', makeListItem);
+makeListItemBtn.addEventListener('click', handleTaskClick);
 taskList.addEventListener('click', deleteTask);
+makeListBtn.addEventListener('click', makeList);
+
 
 function clearInputs() {
     inputs.forEach(input => input.value = '');
 }
 
-function makeListItem(e) {
+function handleTaskClick(e) {
     e.preventDefault();
+    const formDiv = document.querySelector('.form__div');
+    if (itemInput.value !== '') {
+        makeListItem();
+    }
+    // } else {
+    //     showErrorMessage(formDiv, 'Please enter a task :)');
+    // }
+    clearInputs();
+}
+
+// function showErrorMessage(placement, message) {
+//     const error = `
+//         <p class="error">${message}</p>
+//     `;
+//     if () {
+//         placement.insertAdjacentHTML('afterEnd', error);
+//     } else {
+//         placement.removeChild(error);
+//     }
+// }
+
+function makeListItem() {
     const listItemEl = `
         <li class="list-item">
             <button
@@ -27,22 +53,28 @@ function makeListItem(e) {
             </p>
         </li>
     `;
-    const formDiv = document.querySelector('.form__div');
-    const noInputError = `
-        <p class="error">Please enter a task :)</p>
-    `;
-    if (itemInput.value !== '') {
-        taskList.insertAdjacentHTML('beforeEnd', listItemEl);
-    } else {
-        formDiv.insertAdjacentHTML('afterEnd', noInputError);
-    }
-    clearInputs();
+    taskList.insertAdjacentHTML('beforeEnd', listItemEl);
 }
 
-function deleteTask(e) {
-    e.preventDefault();
+function deleteTask() {
     const selectedTask = e.target.parentNode.parentNode;
     if (e.target.nodeName === 'IMG') {
         taskList.removeChild(selectedTask);
     }
+}
+
+function removeEmptyMessage() {
+    const cards = cardContainer.querySelectorAll('.card');
+    const emptyMessage = document.querySelector('#empty-message');
+    if (cards.length > 0) {
+        cardContainer.removeChild(emptyMessage);
+    }
+}
+
+function makeList(e) {
+    e.preventDefault();
+    removeEmptyMessage();
+    const title = titleInput.value;
+    const listItems = [...document.querySelectorAll('.list-item-text')];
+    const tasks = listItems.map(task => task.innerText);
 }
