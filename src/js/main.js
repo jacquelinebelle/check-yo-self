@@ -27,7 +27,15 @@ function makeListItem(e) {
             </p>
         </li>
     `;
-    taskList.insertAdjacentHTML('beforeend', listItemEl);
+    const formDiv = document.querySelector('.form__div');
+    const noInputError = `
+        <p class="error">Please enter a task :)</p>
+    `;
+    if (itemInput.value !== '') {
+        taskList.insertAdjacentHTML('beforeEnd', listItemEl);
+    } else {
+        formDiv.insertAdjacentHTML('afterEnd', noInputError);
+    }
     clearInputs();
 }
 
