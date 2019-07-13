@@ -19,10 +19,12 @@
         <form class="side-bar__form">
             <label for="title-input" class="form-input__label">Task Title</label>
             <input type="text" id="title-input" class="form__input form__input--long" />
-            <ul id="item-list"></ul>
+            <ul id="item-list" class="item-list"></ul>
             <label for="item-input" class="form-input__label">Task Item</label>
             <input type="text" id="item-input" class="form__input form__input--short" />
-            <button id="submit-item-btn" class="form__btn form__btn--small">+</button>
+            <div class="form__div">
+                <button id="make-item-btn" class="form__btn form__btn--small">+</button>
+            </div>
             <button id="make-list-btn" class="form__btn form__btn--top form__btn--big">Make Task List</button>
             <button id="clear-btn" class="form__btn form__btn--big">Clear All</button>
         </form>
@@ -31,6 +33,6 @@
     <main class="card-container">
         <p id="empty-message" class="card-container__message">You currently have no tasks <|:)</p>
     </main>
-    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="./src/js/main.js"></script>
   </body>
 </html>
