@@ -1,9 +1,15 @@
-const makeListItemBtn = document.querySelector('#make-item-btn');
+const inputs = document.querySelectorAll('.form__input')
 const itemInput = document.querySelector('#item-input');
+const titleInput = document.querySelector('#title-input');
+const makeListItemBtn = document.querySelector('#make-item-btn');
 const taskList = document.querySelector('#item-list');
 
 makeListItemBtn.addEventListener('click', makeListItem);
 taskList.addEventListener('click', deleteTask);
+
+function clearInputs() {
+    inputs.forEach(input => input.value = '');
+}
 
 function makeListItem(e) {
     e.preventDefault();
@@ -22,6 +28,7 @@ function makeListItem(e) {
         </li>
     `;
     taskList.insertAdjacentHTML('beforeend', listItemEl);
+    clearInputs();
 }
 
 function deleteTask(e) {
