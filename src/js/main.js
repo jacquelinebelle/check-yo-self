@@ -14,6 +14,7 @@ taskList.addEventListener('click', deleteTask);
 makeListBtn.addEventListener('click', handleMakeListClick);
 itemInput.addEventListener('input', checkInputs);
 titleInput.addEventListener('input', checkInputs);
+clearBtn.addEventListener('click', clearTaskList);
 
 function startCheckingYourself() {
     checkInputs();
