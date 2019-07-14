@@ -66,7 +66,7 @@ function deleteTask() {
 function removeEmptyMessage() {
     const cards = cardContainer.querySelectorAll('.card');
     const emptyMessage = document.querySelector('#empty-message');
-    if (cards.length > 1) {
+    if (cards.length === 0) {
         cardContainer.removeChild(emptyMessage);
     }
 }
