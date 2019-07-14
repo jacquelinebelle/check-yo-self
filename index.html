@@ -3,32 +3,37 @@
   <head>
     <title>Check Yo Self</title>
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap" rel="stylesheet"> -->
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="./src/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./src/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
-        <h1>CHECK YO' SELF</h1>
+        <h1>CHECK <span class="heading--orange">YO'</span> SELF</h1>
         <button class="header__btn" id="search-btn">
-            <!-- <img class="header__img" src="" /> -->
+            <img class="header__img" src="./src/assets/search.svg" />
         </button>
-        <input type="text" id="search-input" class="header__input"/>
+        <input type="text" placeholder="Search" id="search-input" class="header__input"/>
     </header>
     <aside class="side-bar">
         <form class="side-bar__form">
             <label for="title-input" class="form-input__label">Task Title</label>
             <input type="text" id="title-input" class="form__input form__input--long" />
-            <ul id="item-list"></ul>
+            <ul id="item-list" class="item-list"></ul>
             <label for="item-input" class="form-input__label">Task Item</label>
             <input type="text" id="item-input" class="form__input form__input--short" />
-            <button id="submit-item-btn" class="form__btn form__btn--small">+</button>
-            <button id="make-list-btn" class="form__btn form__btn--big">Make Task List</button>
-            <button id="clear-btn" class="form__btn form__btn--big">Clear All</button>
+            <div class="form__div">
+                <button disabled="true" id="make-item-btn" class="form__btn form__btn--small">+</button>
+            </div>
+            <button disabled="true" id="make-list-btn" class="form__btn form__btn--top form__btn--big">Make Task List</button>
+            <button disabled="true" id="clear-btn" class="form__btn form__btn--big">Clear All</button>
         </form>
         <button id="filter-btn" class="form__btn form__btn--big">Filter By Urgency</button>
     </aside>
     <main class="card-container">
         <p id="empty-message" class="card-container__message">You currently have no tasks <|:)</p>
     </main>
-    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="./src/js/todo-list.js"></script>
+    <script type="text/javascript" src="./src/js/main.js"></script>
   </body>
 </html>
