@@ -7,7 +7,7 @@ class ToDoList {
     }
 
     saveToStorage(lists) {
-        localStorage.setItem('storedTodos', JSON.stringify(lists));
+        localStorage.setItem('storedLists', JSON.stringify(lists));
     }
 
     deleteFromStorage() {

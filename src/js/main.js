@@ -1,4 +1,4 @@
-const lists = [];
+const lists = JSON.parse(localStorage.getItem('storedLists')) || [];
 const inputs = document.querySelectorAll('.form__input')
 const itemInput = document.querySelector('#item-input');
 const titleInput = document.querySelector('#title-input');
@@ -17,6 +17,14 @@ titleInput.addEventListener('input', checkInputs);
 
 function startCheckingYourself() {
     checkInputs();
+    loadListsFromStorage();
+    removeEmptyMessage();
+}
+
+function loadListsFromStorage() {
+    lists.forEach(list => {
+        makeCard(list);
+    })
 }
 
 function checkInputs() {
@@ -94,7 +102,7 @@ function deleteTask() {
 function removeEmptyMessage() {
     const cards = cardContainer.querySelectorAll('.card');
     const emptyMessage = document.querySelector('#empty-message');
-    if (cards.length === 0) {
+    if (cards.length > 0) {
         cardContainer.removeChild(emptyMessage);
     }
 }
@@ -127,13 +135,11 @@ function makeCard(list) {
             })}
         </article>
     `;
-    return card;
+    cardContainer.insertAdjacentHTML('afterBegin', card);
 }
 
 function handleMakeListClick(e) {
     e.preventDefault();
     removeEmptyMessage();
-    const newCard = makeList();
-    cardContainer.insertAdjacentHTML('afterBegin', newCard);
     clearTaskList();
 }
