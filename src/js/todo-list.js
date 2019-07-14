@@ -6,8 +6,8 @@ class ToDoList {
         this.tasks = tasks;
     }
 
-    saveToStorage() {
-
+    saveToStorage(lists) {
+        localStorage.setItem('storedTodos', JSON.stringify(lists));
     }
 
     deleteFromStorage() {

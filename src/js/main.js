@@ -1,3 +1,4 @@
+const lists = [];
 const inputs = document.querySelectorAll('.form__input')
 const itemInput = document.querySelector('#item-input');
 const titleInput = document.querySelector('#title-input');
@@ -106,6 +107,8 @@ function makeList() {
         return taskObj;
     });
     const list = new ToDoList(Date.now(), title, tasks);
+    lists.push(list);
+    list.saveToStorage(lists);
     return makeCard(list);
 }
 
