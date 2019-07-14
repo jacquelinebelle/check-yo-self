@@ -156,6 +156,8 @@ button {
 }
 
 .card {
+    background-color: #ffe79d;
+    color: color: #1f1e3d;
     width: 400px;
 }
 

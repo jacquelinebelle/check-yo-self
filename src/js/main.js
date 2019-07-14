@@ -8,7 +8,7 @@ const cardContainer = document.querySelector('.card-container');
 
 makeListItemBtn.addEventListener('click', handleTaskClick);
 taskList.addEventListener('click', deleteTask);
-makeListBtn.addEventListener('click', makeList);
+makeListBtn.addEventListener('click', handleMakeListClick);
 
 
 function clearInputs() {
@@ -66,15 +66,43 @@ function deleteTask() {
 function removeEmptyMessage() {
     const cards = cardContainer.querySelectorAll('.card');
     const emptyMessage = document.querySelector('#empty-message');
-    if (cards.length > 0) {
+    if (cards.length > 1) {
         cardContainer.removeChild(emptyMessage);
     }
 }
 
-function makeList(e) {
-    e.preventDefault();
-    removeEmptyMessage();
+function makeList() {
     const title = titleInput.value;
     const listItems = [...document.querySelectorAll('.list-item-text')];
-    const tasks = listItems.map(task => task.innerText);
+    const tasks = listItems.map((task, index) => { 
+        const taskObj = {id: parseInt(`${index + 1}`), text: task.innerText, checked: false};
+        return taskObj;
+    });
+    const list = new ToDoList(Date.now(), title, tasks);
+    return makeCard(list);
+}
+
+function makeCard(list) {
+    const card = `
+        <article class="card"
+        data-id=${list.id}>
+            <h2>${list.title}</h2>
+            ${list.tasks.map(task => {
+                return `
+                    <p class="task"
+                    data-id=${task.id}>
+                        ${task.text}
+                    </p>
+                `;
+            })}
+        </article>
+    `;
+    return card;
+}
+
+function handleMakeListClick(e) {
+    e.preventDefault();
+    removeEmptyMessage();
+    const newCard = makeList();
+    cardContainer.insertAdjacentHTML('afterBegin', newCard);
 }
