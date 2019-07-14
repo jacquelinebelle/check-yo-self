@@ -4,12 +4,33 @@ const titleInput = document.querySelector('#title-input');
 const makeListItemBtn = document.querySelector('#make-item-btn');
 const taskList = document.querySelector('#item-list');
 const makeListBtn = document.querySelector('#make-list-btn');
+const clearBtn = document.querySelector('#clear-btn')
 const cardContainer = document.querySelector('.card-container');
 
+window.addEventListener('load', startCheckingYourself);
 makeListItemBtn.addEventListener('click', handleTaskClick);
 taskList.addEventListener('click', deleteTask);
 makeListBtn.addEventListener('click', handleMakeListClick);
+itemInput.addEventListener('input', checkInputs);
+titleInput.addEventListener('input', checkInputs);
 
+function startCheckingYourself() {
+    checkInputs();
+}
+
+function checkInputs() {
+    inputs.forEach(input => {
+        if (input === '') {
+            makeListItemBtn.setAttribute('disabled', 'true');
+            makeListBtn.setAttribute('disabled', 'true');
+            clearBtn.setAttribute('disabled', 'true');
+        } else {
+            makeListItemBtn.removeAttribute('disabled');
+            makeListBtn.removeAttribute('disabled');
+            clearBtn.removeAttribute('disabled');
+        }
+    })
+}
 
 function clearInputs() {
     inputs.forEach(input => input.value = '');
