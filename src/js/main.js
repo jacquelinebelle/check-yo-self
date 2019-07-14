@@ -15,6 +15,12 @@ function clearInputs() {
     inputs.forEach(input => input.value = '');
 }
 
+function clearTaskList() {
+    clearInputs();
+    const tasks = [...document.querySelectorAll('.list-item')];
+    tasks.forEach(task => taskList.removeChild(task));
+}
+
 function handleTaskClick(e) {
     e.preventDefault();
     const formDiv = document.querySelector('.form__div');
@@ -105,4 +111,5 @@ function handleMakeListClick(e) {
     removeEmptyMessage();
     const newCard = makeList();
     cardContainer.insertAdjacentHTML('afterBegin', newCard);
+    clearTaskList();
 }
